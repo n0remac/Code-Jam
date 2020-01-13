@@ -43,7 +43,8 @@ class square(Widget):
 
 
 class Screen:
-    #there will be three screens: title, settings, board.
+    #There will be three screens: title, settings, board.
+    #A class that keeps track of gamestates will likely be needed.
 
     def __init__(self):
         self.sm = ScreenManager()
