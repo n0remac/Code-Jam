@@ -9,8 +9,18 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 class title(Screen):
     pass
 
+
 class settings(Screen):
     pass
+
+
+class DifficultySetting(Widget):
+    pass
+
+
+class PlayerSetting(Widget):
+    pass
+
 
 class square(Widget):
     pass

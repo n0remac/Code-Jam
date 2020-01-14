@@ -1,21 +1,51 @@
 <title>:
     BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: 'Checkers'
         Button:
             text: 'Settings'
             on_press: root.manager.current = 'settings'
         Button:
+            text: 'Play'
+        Button:
             text: 'Quit'
             on_press: app.stop()
+
+<PlayerSetting>
+    BoxLayout:
+        size: root.size
+        pos: root.pos
+        orientation: 'horizontal'
+        Button:
+            text: '1 Player'
+        Button:
+            text: '2 Players'
+
+<DifficultySetting>
+    BoxLayout:
+        size: root.size
+        pos: root.pos
+        orientation: 'horizontal'
+        Label:
+            text: 'CPU Difficulty'
+        Slider:
+            id: slider
+            min: 0
+            max: 10
+            value: 3
+            step: 1
+            orientation: 'horizontal'
+        Label:
+            text: str(round(slider.value))
 
 <settings>:
     BoxLayout:
         orientation: 'vertical'
-        Button:
-            text: 'Option 1'
-        Button:
-            text: 'Option 2'
-        Button:
-            text: 'Option 3'
+        Label:
+            text: 'Settings'
+        PlayerSetting:
+        DifficultySetting:
         Button:
             text: 'Main Menu'
             on_press: root.manager.current = 'menu'
