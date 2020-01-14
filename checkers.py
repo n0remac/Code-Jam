@@ -5,32 +5,6 @@ from kivy.lang import Builder
 from kivy.core.window import Window
 from kivy.uix.screenmanager import ScreenManager, Screen
 
-Builder.load_string('''
-<title>:
-    BoxLayout:
-        Button:
-            text: 'Goto settings'
-            on_press: root.manager.current = 'settings'
-        Button:
-            text: 'Quit'
-            on_press: app.stop() 
-
-<settings>:
-    BoxLayout:
-        Button:
-            text: 'My settings button'
-        Button:
-            text: 'Back to menu'
-            on_press: root.manager.current = 'menu'
-            
-<square>:
-    canvas:
-        Color:
-            rgba: 0, 0, 0, 0
-        Line:
-            width: 2.
-            rectangle: (self.x, self.y, self.width, self.height)
-''')
 
 class title(Screen):
     pass
@@ -56,9 +30,10 @@ class Screen:
 
 
 class Application(App):
-
     def build(self):
+        Builder.load_file('checkers.kv')
         return Screen().get_manager()
+
 
 if __name__ == '__main__':
     Application().run()
