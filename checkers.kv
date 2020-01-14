@@ -1,7 +1,7 @@
 <title>:
     BoxLayout:
         Button:
-            text: 'Goto settings'
+            text: 'Settings'
             on_press: root.manager.current = 'settings'
         Button:
             text: 'Quit'
@@ -9,10 +9,15 @@
 
 <settings>:
     BoxLayout:
+        orientation: 'vertical'
         Button:
-            text: 'My settings button'
+            text: 'Option 1'
         Button:
-            text: 'Back to menu'
+            text: 'Option 2'
+        Button:
+            text: 'Option 3'
+        Button:
+            text: 'Main Menu'
             on_press: root.manager.current = 'menu'
 
 <square>:
