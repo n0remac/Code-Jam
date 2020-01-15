@@ -1,4 +1,4 @@
-<title>:
+<TitleMenu>:
     BoxLayout:
         orientation: 'vertical'
         Label:
@@ -44,7 +44,7 @@
         Label:
             text: str(round(slider.value))
 
-<settings>:
+<SettingsMenu>:
     BoxLayout:
         orientation: 'vertical'
         Label:
@@ -55,7 +55,7 @@
             text: 'Main Menu'
             on_release: root.manager.current = 'menu'
 
-<square>:
+<Square>:
     canvas:
         Color:
             rgba: 0, 0, 0, 0
