@@ -1,16 +1,14 @@
-import kivy
 from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.lang import Builder
-from kivy.core.window import Window
 from kivy.uix.screenmanager import ScreenManager, Screen
 
 
-class title(Screen):
+class TitleMenu(Screen):
     pass
 
 
-class settings(Screen):
+class SettingsMenu(Screen):
     pass
 
 
@@ -23,18 +21,18 @@ class PlayerSetting(Widget):
         self.ids.count.text = f"{player_count} Players Selected"
 
 
-class square(Widget):
+class Square(Widget):
     pass
 
 
 class Screen:
-    #There will be three screens: title, settings, board.
-    #A class that keeps track of gamestates will likely be needed.
+    # There will be three screens: title, settings, board.
+    # A class that keeps track of gamestates will likely be needed.
 
     def __init__(self):
         self.sm = ScreenManager()
-        self.sm.add_widget(title(name='menu'))
-        self.sm.add_widget(settings(name='settings'))
+        self.sm.add_widget(TitleMenu(name="menu"))
+        self.sm.add_widget(SettingsMenu(name="settings"))
 
     def get_manager(self):
         return self.sm
@@ -42,9 +40,9 @@ class Screen:
 
 class Application(App):
     def build(self):
-        Builder.load_file('checkers.kv')
+        Builder.load_file("checkers.kv")
         return Screen().get_manager()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     Application().run()
