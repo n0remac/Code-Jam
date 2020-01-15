@@ -5,12 +5,12 @@
             text: 'Checkers'
         Button:
             text: 'Settings'
-            on_press: root.manager.current = 'settings'
+            on_release: root.manager.current = 'settings'
         Button:
             text: 'Play'
         Button:
             text: 'Quit'
-            on_press: app.stop()
+            on_release: app.stop()
 
 <PlayerSetting>
     BoxLayout:
@@ -19,8 +19,13 @@
         orientation: 'horizontal'
         Button:
             text: '1 Player'
+            on_release:  root.select_players(1)
         Button:
             text: '2 Players'
+            on_release: root.select_players(2)
+        Label:
+            id: count
+            text: 'default'
 
 <DifficultySetting>
     BoxLayout:
@@ -48,7 +53,7 @@
         DifficultySetting:
         Button:
             text: 'Main Menu'
-            on_press: root.manager.current = 'menu'
+            on_release: root.manager.current = 'menu'
 
 <square>:
     canvas:
