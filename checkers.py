@@ -2,6 +2,8 @@ from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.uix.button import Button
+from kivy.uix.gridlayout import GridLayout
 
 
 class TitleMenu(Screen):
@@ -21,7 +23,7 @@ class PlayerSetting(Widget):
         self.ids.count.text = f"{player_count} Players Selected"
 
 
-class Square(Widget):
+class Board(Screen):
     pass
 
 
@@ -33,6 +35,12 @@ class Screen:
         self.sm = ScreenManager()
         self.sm.add_widget(TitleMenu(name="menu"))
         self.sm.add_widget(SettingsMenu(name="settings"))
+        layout = GridLayout(cols=8, rows=8)
+        for i in range(64):
+            layout.add_widget(Button())
+        b = Board(name='board')
+        b.add_widget(layout)
+        self.sm.add_widget(b)
 
     def get_manager(self):
         return self.sm
