@@ -1,0 +1,64 @@
+<TitleMenu>:
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: 'Checkers'
+        Button:
+            text: 'Settings'
+            on_release: root.manager.current = 'settings'
+        Button:
+            text: 'Play'
+        Button:
+            text: 'Quit'
+            on_release: app.stop()
+
+<PlayerSetting>
+    BoxLayout:
+        size: root.size
+        pos: root.pos
+        orientation: 'horizontal'
+        Button:
+            text: '1 Player'
+            on_release:  root.select_players(1)
+        Button:
+            text: '2 Players'
+            on_release: root.select_players(2)
+        Label:
+            id: count
+            text: 'default'
+
+<DifficultySetting>
+    BoxLayout:
+        size: root.size
+        pos: root.pos
+        orientation: 'horizontal'
+        Label:
+            text: 'CPU Difficulty'
+        Slider:
+            id: slider
+            min: 0
+            max: 10
+            value: 3
+            step: 1
+            orientation: 'horizontal'
+        Label:
+            text: str(round(slider.value))
+
+<SettingsMenu>:
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: 'Settings'
+        PlayerSetting:
+        DifficultySetting:
+        Button:
+            text: 'Main Menu'
+            on_release: root.manager.current = 'menu'
+
+<Square>:
+    canvas:
+        Color:
+            rgba: 0, 0, 0, 0
+        Line:
+            width: 2.
+            rectangle: (self.x, self.y, self.width, self.height)

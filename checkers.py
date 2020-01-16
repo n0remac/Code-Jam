@@ -1,64 +1,48 @@
-import kivy
 from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.lang import Builder
-from kivy.core.window import Window
 from kivy.uix.screenmanager import ScreenManager, Screen
 
-Builder.load_string('''
-<title>:
-    BoxLayout:
-        Button:
-            text: 'Goto settings'
-            on_press: root.manager.current = 'settings'
-        Button:
-            text: 'Quit'
-            on_press: app.stop() 
 
-<settings>:
-    BoxLayout:
-        Button:
-            text: 'My settings button'
-        Button:
-            text: 'Back to menu'
-            on_press: root.manager.current = 'menu'
-            
-<square>:
-    canvas:
-        Color:
-            rgba: 0, 0, 0, 0
-        Line:
-            width: 2.
-            rectangle: (self.x, self.y, self.width, self.height)
-''')
-
-class title(Screen):
+class TitleMenu(Screen):
     pass
 
-class settings(Screen):
+
+class SettingsMenu(Screen):
     pass
 
-class square(Widget):
+
+class DifficultySetting(Widget):
+    pass
+
+
+class PlayerSetting(Widget):
+    def select_players(self, player_count: int):
+        self.ids.count.text = f"{player_count} Players Selected"
+
+
+class Square(Widget):
     pass
 
 
 class Screen:
-    #There will be three screens: title, settings, board.
-    #A class that keeps track of gamestates will likely be needed.
+    # There will be three screens: title, settings, board.
+    # A class that keeps track of gamestates will likely be needed.
 
     def __init__(self):
         self.sm = ScreenManager()
-        self.sm.add_widget(title(name='menu'))
-        self.sm.add_widget(settings(name='settings'))
+        self.sm.add_widget(TitleMenu(name="menu"))
+        self.sm.add_widget(SettingsMenu(name="settings"))
 
     def get_manager(self):
         return self.sm
 
 
 class Application(App):
-
     def build(self):
+        Builder.load_file("checkers.kv")
         return Screen().get_manager()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     Application().run()
