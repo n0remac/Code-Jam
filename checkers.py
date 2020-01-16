@@ -4,7 +4,7 @@ from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.button import Button
 from kivy.uix.gridlayout import GridLayout
-
+#Hello, this is just for practice
 
 class TitleMenu(Screen):
     pass
