@@ -24,7 +24,10 @@ class DifficultySetting(Widget):
 
 class PlayerSetting(Widget):
     def select_players(self, player_count: int):
-        self.ids.count.text = f"{player_count} Players Selected"
+        if player_count > 1:
+            self.ids.count.text = f"{player_count} Players Selected"
+        else:
+            self.ids.count.text = f"{player_count} Player Selected"
 
 
 class Board(Screen):
