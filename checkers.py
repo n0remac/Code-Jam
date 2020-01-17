@@ -26,7 +26,8 @@ class PlayerSetting(Widget):
     def select_players(self, player_count: int):
         if player_count > 1:
             self.ids.count.text = f"{player_count} Players Selected"
-        self.ids.count.text = f"{player_count} Player Selected"
+        else:
+            self.ids.count.text = f"{player_count} Player Selected"
 
 
 class Board(Screen):
