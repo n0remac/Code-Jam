@@ -9,6 +9,7 @@ from kivy.uix.gridlayout import GridLayout
 BLACK = (0.3, 0.3, 0.35, 1)
 WHITE = (1, 1, 1, 1)
 
+
 class TitleMenu(Screen):
     pass
 
@@ -29,12 +30,14 @@ class PlayerSetting(Widget):
 class Board(Screen):
     pass
 
+
 class Square(Button):
     def __init__(self, count):
         super(Square, self).__init__()
 
         self.background_normal = ''
-        self.background_color = BLACK if (count + count//8)%2 else WHITE
+        self.background_color = BLACK if (count + count//8) % 2 else WHITE
+
 
 class Screen:
     # There will be three screens: title, settings, board.
