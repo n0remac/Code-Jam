@@ -9,6 +9,7 @@
             on_release: root.manager.current = 'settings'
         Button:
             text: 'Play'
+            on_release: root.manager.current = 'board'
         Button:
             text: 'Quit'
             on_release: app.stop()
@@ -56,10 +57,3 @@
             text: 'Main Menu'
             on_release: root.manager.current = 'menu'
 
-<Square>:
-    canvas:
-        Color:
-            rgba: 0, 0, 0, 0
-        Line:
-            width: 2.
-            rectangle: (self.x, self.y, self.width, self.height)
