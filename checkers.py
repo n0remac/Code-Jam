@@ -4,7 +4,6 @@ from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.button import Button
 from kivy.uix.gridlayout import GridLayout
-from kivy.graphics.context_instructions import Color
 # Hello, this is just for practice
 
 BLACK = (0.3, 0.3, 0.35, 1)
