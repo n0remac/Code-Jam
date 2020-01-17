@@ -4,7 +4,11 @@ from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.button import Button
 from kivy.uix.gridlayout import GridLayout
-#Hello, this is just for practice
+from kivy.graphics.context_instructions import Color
+# Hello, this is just for practice
+
+BLACK = (0.3, 0.3, 0.35, 1)
+WHITE = (1, 1, 1, 1)
 
 class TitleMenu(Screen):
     pass
@@ -28,6 +32,12 @@ class PlayerSetting(Widget):
 class Board(Screen):
     pass
 
+class Square(Button):
+    def __init__(self, count):
+        super(Square, self).__init__()
+
+        self.background_normal = ''
+        self.background_color = BLACK if (count + count//8)%2 else WHITE
 
 class Screen:
     # There will be three screens: title, settings, board.
@@ -39,7 +49,7 @@ class Screen:
         self.sm.add_widget(SettingsMenu(name="settings"))
         layout = GridLayout(cols=8, rows=8)
         for i in range(64):
-            layout.add_widget(Button())
+            layout.add_widget(Square(i))
         b = Board(name='board')
         b.add_widget(layout)
         self.sm.add_widget(b)
